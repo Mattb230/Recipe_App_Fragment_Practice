@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bootsysoftware.smellslikebacon.ListFragment;
 import com.bootsysoftware.smellslikebacon.R;
 import com.bootsysoftware.smellslikebacon.model.Recipes;
 
@@ -14,6 +15,12 @@ import com.bootsysoftware.smellslikebacon.model.Recipes;
  * Created by Matthew Boydston on 9/22/2016.
  */
 public class ListAdapter extends RecyclerView.Adapter {
+    private final ListFragment.OnRecipeSelectedInterface mListener;
+
+    public ListAdapter(ListFragment.OnRecipeSelectedInterface listener) {
+        mListener = listener;
+    }
+
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // Inflate view that the adapter will use the show the list item
@@ -35,6 +42,7 @@ public class ListAdapter extends RecyclerView.Adapter {
     private class ListViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private TextView mTextView;
         private ImageView mImageView;
+        private int mIndex;
 
         public ListViewHolder(View itemView) {
             super(itemView);
@@ -45,6 +53,7 @@ public class ListAdapter extends RecyclerView.Adapter {
         }
 
         public void BindView(int position){
+            mIndex = position;
             //Update views to display the right recipe and image
             mTextView.setText(Recipes.names[position]);
             mImageView.setImageResource(Recipes.resourceIds[position]);
@@ -52,11 +61,8 @@ public class ListAdapter extends RecyclerView.Adapter {
 
         @Override
         public void onClick(View v) {
-
+            //call the method in the interface we made
+            mListener.onListRecipeSelected(mIndex);
         }
     }
-
-    {
-
-    }
-}
+} //end class

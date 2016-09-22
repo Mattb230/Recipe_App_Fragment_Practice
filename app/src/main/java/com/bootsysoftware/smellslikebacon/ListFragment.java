@@ -15,14 +15,22 @@ import com.bootsysoftware.smellslikebacon.adapters.ListAdapter;
  * Created by Matthew Boydston on 9/20/2016.
  */
 public class ListFragment extends Fragment {
+
+    public interface OnRecipeSelectedInterface {
+        void onListRecipeSelected(int index);
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        //Get the activity, and cast it to the interface
+        OnRecipeSelectedInterface listener = (OnRecipeSelectedInterface) getActivity();
         // layout, and the viewgroup where our new view gets added
         View view = inflater.inflate(R.layout.fragment_list, container, false);
 
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.listRecyclerView);
-        ListAdapter listAdapter = new ListAdapter();
+        // Need to pass listener into the adapter, since that is were we handle clicks of the items
+        ListAdapter listAdapter = new ListAdapter(listener);
         // Attach adapter to view
         recyclerView.setAdapter(listAdapter);
         // Set Layout Manager for recycler View

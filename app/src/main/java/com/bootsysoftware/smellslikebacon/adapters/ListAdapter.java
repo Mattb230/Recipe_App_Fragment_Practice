@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bootsysoftware.smellslikebacon.ListFragment;
+import com.bootsysoftware.smellslikebacon.controller.ListFragment;
 import com.bootsysoftware.smellslikebacon.R;
 import com.bootsysoftware.smellslikebacon.model.Recipes;
 

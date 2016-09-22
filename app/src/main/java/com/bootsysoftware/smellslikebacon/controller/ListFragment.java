@@ -1,14 +1,16 @@
-package com.bootsysoftware.smellslikebacon;
+package com.bootsysoftware.smellslikebacon.controller;
 
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bootsysoftware.smellslikebacon.R;
 import com.bootsysoftware.smellslikebacon.adapters.ListAdapter;
 
 /**

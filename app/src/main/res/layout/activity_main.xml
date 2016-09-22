@@ -5,11 +5,11 @@
     android:id="@+id/placeHolder"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.bootsysoftware.smellslikebacon.MainActivity">
+    tools:context=".controller.MainActivity">
 
     <!--
     <fragment
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:name="com.bootsysoftware.smellslikebacon.ListFragment" -->
+        android:name="com.bootsysoftware.smellslikebacon.controller.ListFragment" -->
 </FrameLayout>
